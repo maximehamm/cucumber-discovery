@@ -15,4 +15,19 @@ public class WalletTest {
         wallet = new Wallet(amount);
     }
 
+    @And("J'ajoute {double} €")
+    public void add(double amount) {
+        wallet.add(amount);
+    }
+
+    @And("Je retire {double} €")
+    public void withdraw(double amount) {
+        wallet.withdraw(amount);
+    }
+
+    @Then("Le nouveau solde est {double} €")
+    public void checkSolde(double amount) {
+        assertEquals(amount, wallet.getBalance());
+    }
+
 }
