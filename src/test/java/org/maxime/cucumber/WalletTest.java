@@ -1,6 +1,7 @@
 package org.maxime.cucumber;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -29,5 +30,4 @@ public class WalletTest {
     public void checkSolde(double amount) {
         assertEquals(amount, wallet.getBalance());
     }
-
 }

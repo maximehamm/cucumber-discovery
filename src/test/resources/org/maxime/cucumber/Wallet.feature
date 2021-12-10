@@ -1,3 +1,4 @@
+@MONEY
 Feature: Manipulation d'un portefeuille
 
   Gestion d'un portefeuille
@@ -5,6 +6,7 @@ Feature: Manipulation d'un portefeuille
   - On peut ajouter et supprimer de l'argent dans son portefeuille.
   - Le nouveau solde est automatiquement calculé
 
+  @STABLE @STABLE
   Scenario: Ajout d'argent dans un portefeuille
 
     When Je créé un portefeuille avec 100.0 €
