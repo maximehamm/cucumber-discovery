@@ -3,7 +3,6 @@ package org.maxime.cucumber
 import io.cucumber.java.DataTableType
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
-import junit.framework.Assert
 import kotlin.test.assertEquals
 import kotlin.test.fail
 
@@ -19,7 +18,7 @@ class TableTest {
 
     @Then("I have {int} favorites authors")
     fun iHaveFavoritesAuthors(count: Int) {
-        Assert.assertEquals(count, favoritesAuthors.size)
+        assertEquals(count, favoritesAuthors.size)
     }
 
     @Given("I have a library containing some books")
@@ -56,12 +55,19 @@ class TableTest {
 
                 val myOldest = myBooks.minByOrNull { it.year }!!
 
-                assertEquals(expectedYear, myOldest.year, "Your oldest book from '$author' is from year ${myOldest.year}")
+                assertEquals(
+                    expectedYear,
+                    myOldest.year,
+                    "Your oldest book from '$author' is from year ${myOldest.year}"
+                )
                 assertEquals(expectedTitle, myOldest.title, "Your oldest book from '$author' is '${myOldest.title}'")
         }
     }
 
-
+    @Then("I have {int} books")
+    fun iHaveBooks(expectedCount: Int) {
+        assertEquals(expectedCount, library.size)
+    }
 
     @DataTableType
     fun authorEntry(entry: Map<String, String>): Author {
@@ -77,6 +83,7 @@ class TableTest {
         return Book(
             entry["TITLE"],
             author,
-            entry["DATE"]!!.toInt())
+            entry["DATE"]!!.toInt()
+        )
     }
 }

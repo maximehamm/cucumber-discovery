@@ -7,7 +7,6 @@ public class Book {
    public Integer year;
 
     public Book(String title, Author author, Integer year) {
-
         this.title = title;
         this.author = author;
         this.year = year;
