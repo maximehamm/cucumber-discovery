@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class Author {
 
-    private final String firstName;
+    private final String XfirstName;
     private final String lastName;
 
     public Author(String firstName, String lastName) {
-        this.firstName = firstName.trim();
+        this.XfirstName = firstName.trim();
         this.lastName = lastName.trim();
     }
 
@@ -19,7 +19,7 @@ public class Author {
 
     @Override
     public String toString() {
-        return lastName + ", " + firstName;
+        return lastName + ", " + XfirstName;
     }
 
     @Override
@@ -27,11 +27,11 @@ public class Author {
         if (this == o) return true;
         if (!(o instanceof Author)) return false;
         Author author = (Author) o;
-        return Objects.equals(firstName, author.firstName) && Objects.equals(lastName, author.lastName);
+        return Objects.equals(XfirstName, author.XfirstName) && Objects.equals(lastName, author.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName);
+        return Objects.hash(XfirstName, lastName);
     }
 }
