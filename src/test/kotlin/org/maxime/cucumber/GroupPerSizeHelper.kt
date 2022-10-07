@@ -19,17 +19,17 @@ class GroupPerSizeHelper<T> {
 
             var size = 0.0
             val group = mutableListOf<T>()
-            val iterator = sorted.listIterator()
-            while (iterator.hasNext()) {
-                val it = iterator.next()
+
+            sorted.forEachMutable { r, it ->
                 if (it.first > maxSize)
                     throw ItemsSizeExceededMaximumException()
                 if (size + it.first <= maxSize) {
                     size += it.first
                     group += it.second
-                    iterator.remove()
+                    r.remove()
                 }
             }
+
             grouped += group
         }
 
