@@ -13,7 +13,7 @@ class GroupPerSizeHelper<T> {
 
     fun group(maxSize: Double): List<List<T>> {
 
-        val sorted = this.items?.sortedBy { it.first }?.reversed()?.toMutableList()
+        val sorted: MutableList<Pair<Double, T>> = this.items?.sortedBy { it.first }?.reversed()?.toMutableList()
             ?: throw ItemsInputNotSetException()
 
         val groups = mutableListOf<List<T>>()
