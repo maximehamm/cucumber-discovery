@@ -13,7 +13,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <cucumber.version>7.1.0</cucumber.version>
         <junit-bom.version>5.8.2</junit-bom.version>
-        <kotlin.version>1.5.10</kotlin.version>
+        <kotlin.version>1.7.20</kotlin.version>
     </properties>
 
     <dependencies>

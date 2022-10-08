@@ -1,5 +1,7 @@
 package org.maxime.cucumber
 
+import kotlin.reflect.KClass
+
 class GroupPerSizeHelper<T> {
 
     private var items: List<Pair<Double, T>>? = null
@@ -14,32 +16,32 @@ class GroupPerSizeHelper<T> {
         val sorted = this.items?.sortedBy { it.first }?.reversed()?.toMutableList()
             ?: throw ItemsInputNotSetException()
 
-        val grouped = mutableListOf<List<T>>()
+        val groups = mutableListOf<List<T>>()
         while (sorted.isNotEmpty()) {
 
-            var size = 0.0
+            var size = 0.0.apply { toLong() }
             val group = mutableListOf<T>()
 
-            sorted.forEachMutable { r, it ->
+            sorted.forEachMutable { it ->
                 if (it.first > maxSize)
-                    throw ItemsSizeExceededMaximumException()
+                    throw ItemSizeExceededMaximumException()
                 if (size + it.first <= maxSize) {
                     size += it.first
                     group += it.second
-                    r.remove()
+                    this.remove()
                 }
             }
 
-            grouped += group
+            groups += group
         }
 
-        return grouped
+        return groups
     }
 
     class ItemsInputNotSetException : Throwable() {
     }
 
-    class ItemsSizeExceededMaximumException : Throwable() {
+    class ItemSizeExceededMaximumException : Throwable() {
     }
 
 }
