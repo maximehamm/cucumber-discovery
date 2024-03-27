@@ -86,4 +86,14 @@ class TableTest {
             entry["DATE"]!!.toInt()
         )
     }
+
+
+    @Given("Adding {} from {} published on {}")
+    fun addingFromPublishedOn(title: String, author: String, year: String) {
+
+    }
+
+    @Given("Preparing to add more books")
+    fun preparingToAddMoreBooks() {
+    }
 }

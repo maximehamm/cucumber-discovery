@@ -1,5 +1,6 @@
 package org.maxime.cucumber
 
+import io.cucumber.datatable.DataTable
 import io.cucumber.java.DataTableType
 import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
@@ -14,7 +15,7 @@ class SendMailsTest {
 
     private var emails: List<EMail> = emptyList()
 
-    @Given("The maximum size for an email is {int} Mb")
+    @Given("The maximum size for an email is {double} Mb")
     fun theMaximumSizeIs(maxSize: Double) {
         this.maxSize = maxSize
     }

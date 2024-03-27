@@ -20,6 +20,24 @@ Feature: Using data table
       | Crows             | 1985 | Dickinson, Charles |
     Then I have 6 books
 
+
+ Scenario Outline: Adding books
+
+   Given Preparing to add more books
+   Given Adding <TITLE> from <AUTHOR> published on <YEAR>
+
+   # Main examples
+   Scenarios:
+     | TITLE | YEAR | AUTHOR             |
+     | Xxx   | 1965 | Herbert, Franck    |
+     | Yyy   | 1969 | Herbert, Franck    |
+     | Zzz   | 1985 | Dickinson, Charles |
+
+   # More examples
+   Scenarios:
+     | TITLE | YEAR | AUTHOR     |
+     | Www   | 1972 | Zombi land |
+
   Scenario: Counting books per authors
     Then Here is my book count (with map)
       | King, Stephen      | 3 |

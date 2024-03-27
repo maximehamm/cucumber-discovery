@@ -5,6 +5,7 @@ Feature: Sending emails with attachments
   We need to send multiple files, but as less as possible
 
   Scenario: 1
+
     Given The maximum size for an email is 8 Mb
     And We have this set of attachments :
       | File name | Size |
