@@ -28,4 +28,8 @@ public class WalletTest {
     public void checkSolde(double amount) {
         assertEquals(amount, wallet.getBalance());
     }
+
+    @Then("that's it !")
+    public void thatSIt() {
+    }
 }

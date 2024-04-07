@@ -1,8 +1,11 @@
 package org.maxime.cucumber
 
 import io.cucumber.java.DataTableType
+import io.cucumber.java.en.And
 import io.cucumber.java.en.Given
 import io.cucumber.java.en.Then
+import io.cucumber.java.en.When
+import junit.framework.Assert
 import kotlin.test.assertEquals
 import kotlin.test.fail
 
@@ -18,6 +21,7 @@ class TableTest {
 
     @Then("I have {int} favorites authors")
     fun iHaveFavoritesAuthors(count: Int) {
+
         assertEquals(count, favoritesAuthors.size)
     }
 
@@ -28,6 +32,8 @@ class TableTest {
 
     @Then("Here is my book count \\(with map)")
     fun hereIsMyBookCount(entries: Map<String, Long>) {
+
+
         entries.forEach { (k: String, v: Long) ->
             val author = Author(k)
             val count: Long= library.count { it.author == author }.toLong()
@@ -95,5 +101,23 @@ class TableTest {
 
     @Given("Preparing to add more books")
     fun preparingToAddMoreBooks() {
+    }
+
+    @When("A file is sent")
+    fun aFileIsSent() {
+        Thread.sleep(50)
+    }
+
+    @And("The file is a {}")
+    fun theFileIsA(arg0: String) {
+        Assert.assertFalse(arg0 =="AAA")
+    }
+
+    @And("The contract is : {}, {}, {}, {}")
+    fun theContractIs(arg0: String, arg1: String, arg2: String, arg3: String) {
+    }
+
+    @Then("The status is {}")
+    fun theStatusIs(arg0: String) {
     }
 }

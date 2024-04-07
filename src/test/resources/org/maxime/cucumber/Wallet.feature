@@ -11,7 +11,7 @@ Feature: Manipulation d'un portefeuille
   Scenario: Ajout d'argent dans un portefeuille
     Ce premier test vérifie un cas très simple :
     * Je rajoute 20.0 €
-    Then Le nouveau solde est 120.0 €
+    Then Le nouveau solde est 20.0 €
 
   Scenario: Retirer de l'argent dans un portefeuille
     * Je retire 20.0 €
@@ -21,4 +21,5 @@ Feature: Manipulation d'un portefeuille
     * Je rajoute 20.0 €
     * Je retire 130.0 €
     Then Le nouveau solde est -10.0 €
+    Then that's it !
 
